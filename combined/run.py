@@ -57,7 +57,12 @@ x = p.loadTexture('aruco_cube.png')
 p.changeVisualShape(c, -1, textureUniqueId=x)
 
 # go to the desired position
-p.setJointMotorControlArray(bodyIndex=boxId, jointIndices=jointIndices, targetPositions=p.calculateInverseKinematics(boxId, eefLinkIdx, targetPosition = [0.45, 0.45, 0.6], targetOrientation = [0, 1.5708, 0]), controlMode=p.POSITION_CONTROL)
+p.setJointMotorControlArray(bodyIndex=boxId, jointIndices=jointIndices, targetPositions=p.calculateInverseKinematics(boxId, 
+                                                                                                                     eefLinkIdx, 
+                                                                                                                     targetPosition = [0.45, 0.45, 0.6],
+                                                                                                                     # targetOrientation = [0, 1.6708, 0]
+                                                                                                                     ),
+                                                                                                                     controlMode=p.POSITION_CONTROL)
 
 for _ in range(100):
     p.stepSimulation()
@@ -71,7 +76,12 @@ sd0 = np.array([(s-IMG_HALF)/IMG_HALF for s in sd0])
 sd = np.reshape(np.array(corners[0][0]),(8,1)).astype(int)
 
 # go to the starting position
-p.setJointMotorControlArray(bodyIndex=boxId, jointIndices=jointIndices, targetPositions=p.calculateInverseKinematics(boxId, eefLinkIdx, targetPosition = [0.45, 0.45, 0.5], targetOrientation = [0, 1.5708, 0]), controlMode=p.POSITION_CONTROL)
+p.setJointMotorControlArray(bodyIndex=boxId, jointIndices=jointIndices, targetPositions=p.calculateInverseKinematics(boxId,
+                                                                                                                     eefLinkIdx, 
+                                                                                                                     targetPosition = [0.45, 0.45, 0.5], 
+                                                                                                                     #  targetOrientation = [0, 1.4708, 0]
+                                                                                                                     ), 
+                                                                                                                     controlMode=p.POSITION_CONTROL)
 
 for _ in range(100):
     p.stepSimulation()
