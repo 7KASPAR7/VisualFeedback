@@ -60,7 +60,7 @@ p.changeVisualShape(c, -1, textureUniqueId=x)
 p.setJointMotorControlArray(bodyIndex=boxId, jointIndices=jointIndices, targetPositions=p.calculateInverseKinematics(boxId, 
                                                                                                                      eefLinkIdx, 
                                                                                                                      targetPosition = [0.45, 0.45, 0.6],
-                                                                                                                     # targetOrientation = [0, 1.6708, 0]
+                                                                                                                     targetOrientation = p.getQuaternionFromEuler([0, 0.0, 1.2708])
                                                                                                                      ),
                                                                                                                      controlMode=p.POSITION_CONTROL)
 
@@ -78,8 +78,8 @@ sd = np.reshape(np.array(corners[0][0]),(8,1)).astype(int)
 # go to the starting position
 p.setJointMotorControlArray(bodyIndex=boxId, jointIndices=jointIndices, targetPositions=p.calculateInverseKinematics(boxId,
                                                                                                                      eefLinkIdx, 
-                                                                                                                     targetPosition = [0.45, 0.45, 0.5], 
-                                                                                                                     #  targetOrientation = [0, 1.4708, 0]
+                                                                                                                     targetPosition = [0.47, 0.47, 0.5], 
+                                                                                                                     targetOrientation = p.getQuaternionFromEuler([0, 0.0, 1.8708])
                                                                                                                      ), 
                                                                                                                      controlMode=p.POSITION_CONTROL)
 
